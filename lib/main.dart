@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: MyFirstWidget2(),
+      title: "First title",
     );
   }
 }
@@ -26,18 +24,27 @@ class MyFirstWidget2 extends StatefulWidget {
 }
 
 class _MyFirstWidget2State extends State<MyFirstWidget2> {
+  String getContextType(BuildContext context){
+    return context.runtimeType.toString();
+  }
   int kolvo = 0;
 
   @override
   Widget build(BuildContext context) {
-    kolvo++;
-    print("Наш счетчик kolvo = $kolvo");
-    return Text('Hello2!');
+   return Container(
+    child: Center(
+      child: Text('hello!'),
+    ),
+   );
   }
 }
 
 
 // class MyFirstWidget extends StatelessWidget {
+//   String getContextType(BuildContext context){
+//     return context.runtimeType.toString();
+//   }
+
 //   int kolvo = 0;
 
 //   @override
@@ -46,9 +53,10 @@ class _MyFirstWidget2State extends State<MyFirstWidget2> {
 //     print("Наш счетчик kolvo = $kolvo");
 //     return Container(
 //       child: Center(
-//         child: Text('hello'),
+//         child: Text('hello!'),
 //       ),
 //     );
 //   }
 // }
+
 
