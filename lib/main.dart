@@ -12,7 +12,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SightListScreen(label: '',),
+      home: SightListScreen(
+        label: '',
+      ),
       title: "First title",
     );
   }
