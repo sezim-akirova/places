@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../domain/sight.dart';
 
 class SightCard extends StatelessWidget {
-  final Sight;
-  const SightCard({super.key, this.Sight});
+  final Sight sight;
+  const SightCard({super.key, required this.sight});
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +21,17 @@ class SightCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "музей",
-                  style: TextStyle(
+                Text(
+                  sight.type,
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 14,
                       fontWeight: FontWeight.w700),
                 ),
                 Container(
-                  child: const Text(
-                    "Сердечко",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
+                  width: 20,
+                  height: 20,
+                  color: Colors.white,
                 ),
               ],
             ),
@@ -44,20 +44,20 @@ class SightCard extends StatelessWidget {
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
             ),
             height: 92,
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Воронежский областной\nкраеведческий музей",
-                  style: TextStyle(
+                  sight.name,
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Color.fromRGBO(37, 40, 73, 1),
                   ),
                 ),
                 Text(
-                  "краткое описание",
-                  style: TextStyle(
+                  sight.details,
+                  style: const TextStyle(
                     color: Color.fromRGBO(124, 126, 146, 1),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,

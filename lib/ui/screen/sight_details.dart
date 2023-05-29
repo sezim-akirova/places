@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:places/res/app_strings.dart';
+import '../../domain/sight.dart';
 
 class SightDetails extends StatefulWidget {
-  const SightDetails({super.key});
+  final Sight sight;
+  const SightDetails({super.key, required this.sight});
 
   @override
   State<SightDetails> createState() => _SightDetailsState();
@@ -46,28 +49,28 @@ class _SightDetailsState extends State<SightDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Пряности и радости",
-                    style: TextStyle(
+                  Text(
+                    widget.sight.name,
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                       color: Color.fromRGBO(59, 62, 91, 1),
                     ),
                   ),
                   const SizedBox(height: 2),
-                  const Row(
+                  Row(
                     children: [
                       Text(
-                        "ресторан",
-                        style: TextStyle(
+                        widget.sight.type,
+                        style: const TextStyle(
                           color: Color.fromRGBO(59, 62, 91, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      SizedBox(width: 16),
-                      Text(
-                        "закрыто до 09:00",
+                      const SizedBox(width: 16),
+                      const Text(
+                        "открыто каждый день",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             color: Color.fromRGBO(124, 126, 146, 1),
@@ -76,9 +79,9 @@ class _SightDetailsState extends State<SightDetails> {
                     ],
                   ),
                   const SizedBox(height: 24),
-                  const Text(
-                    "Пряный вкус радостной жизни вместе с шеф-поваром Изо Дзандзава, благодаря которой у гостей ресторана есть возможность выбирать из двух направлений: европейского и восточного",
-                    style: TextStyle(
+                  Text(
+                    widget.sight.details,
+                    style: const TextStyle(
                       color: Color.fromRGBO(59, 62, 91, 1),
                       fontSize: 14,
                       height: 1.2,
@@ -104,7 +107,7 @@ class _SightDetailsState extends State<SightDetails> {
                         ),
                         const SizedBox(width: 10),
                         const Text(
-                          "ПОСТРОИТЬ МАРШРУТ",
+                          AppStrings.buildRoute,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
@@ -131,7 +134,7 @@ class _SightDetailsState extends State<SightDetails> {
                                   color: Colors.grey, width: 20, height: 18),
                               const SizedBox(width: 9),
                               const Text(
-                                "Запланировать",
+                                AppStrings.schedule,
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Color.fromRGBO(124, 126, 146, 1),
@@ -152,7 +155,7 @@ class _SightDetailsState extends State<SightDetails> {
                                   color: Colors.grey, width: 20, height: 18),
                               const SizedBox(width: 9),
                               const Text(
-                                "В Избранное",
+                                AppStrings.favorites,
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: Color.fromRGBO(59, 62, 91, 1),
